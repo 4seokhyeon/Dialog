@@ -1,11 +1,13 @@
 package com.example.ex_dialog
 
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.AlteredCharSequence
 import android.widget.EditText
+import android.widget.TimePicker
 import androidx.appcompat.app.AlertDialog
 import com.example.ex_dialog.databinding.ActivityMainBinding
 import java.util.Calendar
@@ -79,6 +81,18 @@ class MainActivity : AppCompatActivity() {
                 binding.tvTitle.text = "${i}년 ${i2 + 1}월 ${i3}일"
             }
             var picker = DatePickerDialog(this,listener,year,month,day)
+            picker.show()
+        }
+
+        binding.btn4Time.setOnClickListener {
+            val calender = Calendar.getInstance()
+            val hour = calender.get(Calendar.HOUR)
+            val minute = calender.get(Calendar.MINUTE)
+
+            val listener = TimePickerDialog.OnTimeSetListener{timePicker, i, i2 ->
+                binding.tvTitle.text = "${i}시 ${i2}분"
+            }
+            val picker = TimePickerDialog(this, listener, hour, minute, false)
             picker.show()
         }
 
