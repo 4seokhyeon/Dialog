@@ -96,6 +96,18 @@ class MainActivity : AppCompatActivity() {
             picker.show()
         }
 
+        binding.btn5Porgress.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("프로그래스바")
+            builder.setIcon(R.mipmap.ic_launcher)
+
+            val v1 = layoutInflater.inflate(R.layout.progressbar,null)
+            builder.setView(v1)
+
+            builder.show()
+        }
+
+
 
 
     }
